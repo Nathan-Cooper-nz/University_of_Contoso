@@ -16,11 +16,11 @@ namespace University_of_Contoso.Models
     {
         public int AssessmentID { get; set; }
         public int CourseID { get; set; }
-
-        string AssementName { get; set; }
-        Type? Type { get; set; }
-        double CourseWeight { get; set; }
-        string Instructions { get; set; }
+        public string AssessmentName { get; set; }
+        public Type? Type { get; set; }
+        public double CourseWeight { get; set; }
+        public string Instructions { get; set; }
+        public DateTime DueDate { get; set; }
 
         [JsonIgnore]
         public virtual Course Course { get; set; }
