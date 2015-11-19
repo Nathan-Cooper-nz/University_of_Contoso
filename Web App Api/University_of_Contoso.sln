@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "University_of_Contoso", "University_of_Contoso\University_of_Contoso.csproj", "{B097B210-C277-471A-ADAF-A4BDED5F2BB6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "University_of_Contoso_API", "University_of_Contoso\University_of_Contoso_API.csproj", "{B097B210-C277-471A-ADAF-A4BDED5F2BB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "University_of_Contoso_WebSite", "WebApplication1\University_of_Contoso_WebSite.csproj", "{2D2AE64F-8F4F-4CCF-B239-4AEB2B2C24E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{B097B210-C277-471A-ADAF-A4BDED5F2BB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B097B210-C277-471A-ADAF-A4BDED5F2BB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B097B210-C277-471A-ADAF-A4BDED5F2BB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D2AE64F-8F4F-4CCF-B239-4AEB2B2C24E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D2AE64F-8F4F-4CCF-B239-4AEB2B2C24E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D2AE64F-8F4F-4CCF-B239-4AEB2B2C24E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D2AE64F-8F4F-4CCF-B239-4AEB2B2C24E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -11,6 +11,8 @@ namespace University_of_Contoso
         {
             // Web API configuration and services
 
+            config.EnableCors();
+
             // Web API routes
             config.MapHttpAttributeRoutes();
 
@@ -20,5 +22,6 @@ namespace University_of_Contoso
                 defaults: new { id = RouteParameter.Optional }
             );
         }
+        
     }
 }

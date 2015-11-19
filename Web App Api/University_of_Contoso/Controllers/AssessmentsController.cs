@@ -7,12 +7,14 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using University_of_Contoso.DAL;
 using University_of_Contoso.Models;
 
 namespace University_of_Contoso.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class AssessmentsController : ApiController
     {
         private UniversityContext db = new UniversityContext();
