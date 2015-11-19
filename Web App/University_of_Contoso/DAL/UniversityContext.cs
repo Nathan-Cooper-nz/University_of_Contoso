@@ -126,16 +126,7 @@ namespace University_of_Contoso.DAL
                         DueDate = DateTime.Parse("2015-09-01")
                     }
                 };
-                foreach (Assessment e in assessments)
-                {
-                    var AssessmentInDataBase = context.Assessments.Where(
-                    s =>
-                    s.Course.CourseID == e.CourseID).SingleOrDefault();
-                    if (AssessmentInDataBase == null)
-                    {
-                        context.Assessments.Add(e);
-                    }
-                }
+                assessments.ForEach(s => context.Assessments.AddOrUpdate(p => p.AssessmentName, s));
                 context.SaveChanges();
             }
         }
