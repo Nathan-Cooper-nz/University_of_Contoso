@@ -69,11 +69,12 @@
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\style.css" />
+    <Content Include="index.html" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\jquery-1.10.2.min.js" />
     <Content Include="js\loader.js" />
-    <Content Include="js\StudentModule.js" />
+    <Content Include="js\studentmodule.js" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -83,7 +84,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="index.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

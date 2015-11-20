@@ -32,4 +32,8 @@ function setupStudentTable(students) {
         studentTable.appendChild(row);
 
     }
+    // Show table after it's all loaded
+    // The "hidden" class is part of bootstrap
+    document.getElementById("studentTable").classList.remove("hidden");
+    document.getElementById("loadingmsg").style.display = "none";
 }
