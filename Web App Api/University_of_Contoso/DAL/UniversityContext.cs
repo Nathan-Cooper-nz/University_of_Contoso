@@ -128,6 +128,26 @@ namespace University_of_Contoso.DAL
                 };
                 assessments.ForEach(s => context.Assessments.AddOrUpdate(p => p.AssessmentName, s));
                 context.SaveChanges();
+
+                var tasks = new List<Task>
+                {
+                    new Task
+                    {
+                        Title = "Finish off Calculus Assigment",
+                        Description = "Still need to do Q3 - Q5",
+                        StudentID = students[0].StudentID,
+                        Importance = Importance.Medium
+                    },
+                    new Task
+                    {
+                        Title = "Finish off Literature Assigment",
+                        Description = "Write Entire Essay",
+                        StudentID = students[2].StudentID,
+                        Importance = Importance.High
+                    }
+                };
+                tasks.ForEach(s => context.Tasks.AddOrUpdate(p => p.TaskID, s));
+                context.SaveChanges();
             }
         }
 
@@ -142,5 +162,7 @@ namespace University_of_Contoso.DAL
         public System.Data.Entity.DbSet<University_of_Contoso.Models.Course> Courses { get; set; }
 
         public System.Data.Entity.DbSet<University_of_Contoso.Models.Assessment> Assessments { get; set; }
+
+        public System.Data.Entity.DbSet<University_of_Contoso.Models.Task> Tasks { get; set; }
     }
 }

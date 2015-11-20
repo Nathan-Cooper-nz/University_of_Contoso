@@ -134,6 +134,7 @@
     <Compile Include="Controllers\AssessmentsController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
+    <Compile Include="Controllers\TasksController.cs" />
     <Compile Include="DAL\UniversityContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -141,6 +142,7 @@
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Assessment.cs" />
     <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\Task.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

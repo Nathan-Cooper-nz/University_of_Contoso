@@ -12,5 +12,8 @@ namespace University_of_Contoso.Models
 
         [JsonIgnore]
         public virtual ICollection<Course> Course { get; set; }
+
+        [JsonIgnore]
+        public virtual ICollection<Task> Tasks { get; set; }
     }
 }
