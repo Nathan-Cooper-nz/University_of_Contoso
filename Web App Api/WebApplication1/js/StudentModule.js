@@ -22,6 +22,28 @@
                 callback(studentsList);
                 return studentsList;
             }
+        },
+
+        getStudentById: function (id, callback){
+
+            var xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function () {
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    loadedStudent();
+                }
+            }
+
+            xhttp.open("GET", "http://nathancooper-contosouniversity.azurewebsites.net/api/Students" + id, true);
+            xhttp.setRequestHeader("Content-type", "application/json");
+
+            xhttp.send();
+
+            function loadedStudent() {
+                var student = JSON.parse(xhttp.responseText);
+                callback(student);
+                return student;
+            }
         }
     }
 }

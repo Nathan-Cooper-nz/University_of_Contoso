@@ -1,16 +1,16 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Students</title>
+    <title>Student details</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <script src="js/jquery-1.10.2.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/loader.js"></script>
-    <script src="js/studentmodule.js"></script>
+    <script src="scripts/jquery-1.10.2.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <script src="scripts/detailpages.js"></script>
+    <script src="scripts/studentmodule.js"></script>
 </head>
-<body data-controller="students">
+<body>
     <header>
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
@@ -30,21 +30,13 @@
         </nav>
     </header>
     <div class="container">
-        <a href="Create.html">+ Create a student</a>
-        <div class="table-responsive">
-            <table class="table table-striped spaced-table table-hover hidden" id="studentTable">
-                <thead>
-                    <tr>
-                        <th>Last Name</th>
-                        <th>First Name</th>
-                        <th></th>           <!--Edit Button Column-->
-                        <th></th>           <!--Delete Button Column-->
-                    </tr>
-                </thead>
-                <tbody id="studentContent"></tbody>
-            </table>
-            <p id="loadingmsg">Students table loading...</p>
-        </div>
+        <a href="index.html">Back to home</a>
+        <p id="loadingmsg">Student details loading...</p>
+        <h2>Student details</h2>
+        <p><b>Student last name:</b></p>
+        <p id="LastName"></p>
+        <p><b>Student first name:</b></p>
+        <p id="FirstName"></p>
     </div>
 </body>
 </html>
