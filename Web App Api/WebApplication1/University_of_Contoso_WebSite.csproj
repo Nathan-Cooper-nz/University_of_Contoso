@@ -66,18 +66,21 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Course_Index.html" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\style.css" />
-    <Content Include="js\detailpages.js" />
-    <Content Include="student_details.html" />
-    <Content Include="index.html" />
-    <Content Include="js\bootstrap.js" />
-    <Content Include="js\bootstrap.min.js" />
-    <Content Include="js\jquery-1.10.2.min.js" />
-    <Content Include="js\loader.js" />
-    <Content Include="js\studentmodule.js" />
+    <Content Include="scripts\taskModule.js" />
+    <Content Include="Student_Detail.html" />
+    <Content Include="Index.html" />
+    <Content Include="scripts\bootstrap.js" />
+    <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="scripts\detailpages.js" />
+    <Content Include="scripts\indexpages.js" />
+    <Content Include="scripts\jquery-1.10.2.min.js" />
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\ContosoUniversity-WebApp - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\ContosoUniversity-WebApp - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -86,6 +89,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="scripts\studentmodule.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

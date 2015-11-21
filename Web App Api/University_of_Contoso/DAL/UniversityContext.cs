@@ -18,137 +18,149 @@ namespace University_of_Contoso.DAL
             {
                 this.AutomaticMigrationsEnabled = true;
             }
-
-            protected override void Seed(UniversityContext context)
-            {
-                var students = new List<Student>
+            /*
+                protected override void Seed(UniversityContext context)
                 {
-                    new Student { FirstName = "Carson", LastName = "Alexander" },
-                    new Student { FirstName = "Meredith", LastName = "Alonso"},
-                    new Student { FirstName = "Arturo", LastName = "Anand" },
-                    new Student { FirstName = "Gytis", LastName = "Barzdukas"},
-                    new Student { FirstName = "Yan", LastName = "Li"},
-                    new Student { FirstName = "Peggy", LastName = "Justice"},
-                    new Student { FirstName = "Laura", LastName = "Norman"},
-                    new Student { FirstName = "Nino", LastName = "Olivetto"}
-                };
-                students.ForEach(s => context.Students.AddOrUpdate(p => p.LastName, s));
-                context.SaveChanges();
-                var courses = new List<Course>
-                {
-                    new Course {CourseID = 1050, Title = "Chemistry", Credits = 3, },
-                    new Course {CourseID = 4022, Title = "Microeconomics", Credits = 3, },
-                    new Course {CourseID = 4041, Title = "Macroeconomics", Credits = 3, },
-                    new Course {CourseID = 1045, Title = "Calculus", Credits = 4, },
-                    new Course {CourseID = 3141, Title = "Trigonometry", Credits = 4, },
-                    new Course {CourseID = 2021, Title = "Composition", Credits = 3, },
-                    new Course {CourseID = 2042, Title = "Literature", Credits = 4, }
-                };
-                courses.ForEach(s => context.Courses.AddOrUpdate(p => p.Title, s));
-                context.SaveChanges();
-                var assessments = new List<Assessment>
-                {
-                    new Assessment {
-                        CourseID = courses.Single(c => c.Title == "Chemistry" ).CourseID,
-                        Type = Models.Type.Assignment,
-                        AssessmentName = "A",
-                        CourseWeight = 25,
-                        DueDate = DateTime.Parse("2010-09-01")
-                    },
-                    new Assessment {
-                        CourseID = courses.Single(c => c.Title == "Microeconomics" ).CourseID,
-                        Type = Models.Type.Assignment,
-                        AssessmentName = "B",
-                        CourseWeight = 25,
-                        DueDate = DateTime.Parse("2010-09-01")
-                    },
-                    new Assessment {
-                        CourseID = courses.Single(c => c.Title == "Macroeconomics" ).CourseID,
-                        Type = Models.Type.Assignment,
-                        AssessmentName = "C",
-                        CourseWeight = 25,
-                        DueDate = DateTime.Parse("2010-09-01")
-                    },
-                    new Assessment {
-                        CourseID = courses.Single(c => c.Title == "Calculus" ).CourseID,
-                        Type = Models.Type.Assignment,
-                        AssessmentName = "D",
-                        CourseWeight = 25,
-                        DueDate = DateTime.Parse("2010-09-01")
-                    },
-                    new Assessment {
-                        CourseID = courses.Single(c => c.Title == "Trigonometry" ).CourseID,
-                        Type = Models.Type.Assignment,
-                        AssessmentName = "E",
-                         CourseWeight = 25,
-                        DueDate = DateTime.Parse("2010-09-01")
-                   },
-                    new Assessment {
-                        CourseID = courses.Single(c => c.Title == "Composition" ).CourseID,
-                        Type = Models.Type.Assignment,
-                        AssessmentName = "F",
-                        CourseWeight = 25,
-                        DueDate = DateTime.Parse("2010-09-01")
-                    },
-                    new Assessment {
-                        CourseID = courses.Single(c => c.Title == "Chemistry" ).CourseID,
-                        Type = Models.Type.Assignment,
-                        AssessmentName = "G",
-                        CourseWeight = 25,
-                        DueDate = DateTime.Parse("2010-09-21")
-                    },
-                    new Assessment {
-                        CourseID = courses.Single(c => c.Title == "Microeconomics").CourseID,
-                        Type = Models.Type.Assignment,
-                        AssessmentName = "H",
-                        CourseWeight = 25,
-                        DueDate = DateTime.Parse("2015-09-05")
-                    },
-                    new Assessment {
-                        CourseID = courses.Single(c => c.Title == "Chemistry").CourseID,
-                        Type = Models.Type.Assignment,
-                        AssessmentName = "I",
-                        CourseWeight = 25,
-                        DueDate = DateTime.Parse("2015-04-01")
-                    },
-                    new Assessment {
-                        CourseID = courses.Single(c => c.Title == "Composition").CourseID,
-                        Type = Models.Type.Assignment,
-                        AssessmentName = "J",
-                        CourseWeight = 25,
-                        DueDate = DateTime.Parse("2013-09-01")
-                    },
-                    new Assessment {
-                        CourseID = courses.Single(c => c.Title == "Literature").CourseID,
-                        Type = Models.Type.Assignment,
-                        AssessmentName = "K",
-                        CourseWeight = 25,
-                        DueDate = DateTime.Parse("2015-09-01")
-                    }
-                };
-                assessments.ForEach(s => context.Assessments.AddOrUpdate(p => p.AssessmentName, s));
-                context.SaveChanges();
-
-                var tasks = new List<Task>
-                {
-                    new Task
+                    var students = new List<Student>
                     {
-                        Title = "Finish off Calculus Assigment",
-                        Description = "Still need to do Q3 - Q5",
-                        StudentID = students[0].StudentID,
-                        Importance = Importance.Medium
-                    },
-                    new Task
+                        new Student { FirstName = "Carson", LastName = "Alexander" },
+                        new Student { FirstName = "Meredith", LastName = "Alonso"},
+                        new Student { FirstName = "Arturo", LastName = "Anand" },
+                        new Student { FirstName = "Gytis", LastName = "Barzdukas"},
+                        new Student { FirstName = "Yan", LastName = "Li"},
+                        new Student { FirstName = "Peggy", LastName = "Justice"},
+                        new Student { FirstName = "Laura", LastName = "Norman"},
+                        new Student { FirstName = "Nino", LastName = "Olivetto"}
+                    };
+                    students.ForEach(s => context.Students.AddOrUpdate(p => p.LastName, s));
+                    context.SaveChanges();
+                    var courses = new List<Course>
                     {
-                        Title = "Finish off Literature Assigment",
-                        Description = "Write Entire Essay",
-                        StudentID = students[2].StudentID,
-                        Importance = Importance.High
+                        new Course {CourseID = 1050, Title = "Chemistry", Credits = 3, },
+                        new Course {CourseID = 4022, Title = "Microeconomics", Credits = 3, },
+                        new Course {CourseID = 4041, Title = "Macroeconomics", Credits = 3, },
+                        new Course {CourseID = 1045, Title = "Calculus", Credits = 4, },
+                        new Course {CourseID = 3141, Title = "Trigonometry", Credits = 4, },
+                        new Course {CourseID = 2021, Title = "Composition", Credits = 3, },
+                        new Course {CourseID = 2042, Title = "Literature", Credits = 4, }
+                    };
+                    courses.ForEach(s => context.Courses.AddOrUpdate(p => p.Title, s));
+                    context.SaveChanges();
+                    var assessments = new List<Assessment>
+                    {
+                        new Assessment {
+                            CourseID = courses.Single(c => c.Title == "Chemistry" ).CourseID,
+                            Type = Models.Type.Assignment,
+                            AssessmentName = "A",
+                            CourseWeight = 25,
+                            DueDate = DateTime.Parse("2010-09-01")
+                        },
+                        new Assessment {
+                            CourseID = courses.Single(c => c.Title == "Microeconomics" ).CourseID,
+                            Type = Models.Type.Assignment,
+                            AssessmentName = "B",
+                            CourseWeight = 25,
+                            DueDate = DateTime.Parse("2010-09-01")
+                        },
+                        new Assessment {
+                            CourseID = courses.Single(c => c.Title == "Macroeconomics" ).CourseID,
+                            Type = Models.Type.Assignment,
+                            AssessmentName = "C",
+                            CourseWeight = 25,
+                            DueDate = DateTime.Parse("2010-09-01")
+                        },
+                        new Assessment {
+                            CourseID = courses.Single(c => c.Title == "Calculus" ).CourseID,
+                            Type = Models.Type.Assignment,
+                            AssessmentName = "D",
+                            CourseWeight = 25,
+                            DueDate = DateTime.Parse("2010-09-01")
+                        },
+                        new Assessment {
+                            CourseID = courses.Single(c => c.Title == "Trigonometry" ).CourseID,
+                            Type = Models.Type.Assignment,
+                            AssessmentName = "E",
+                             CourseWeight = 25,
+                            DueDate = DateTime.Parse("2010-09-01")
+                       },
+                        new Assessment {
+                            CourseID = courses.Single(c => c.Title == "Composition" ).CourseID,
+                            Type = Models.Type.Assignment,
+                            AssessmentName = "F",
+                            CourseWeight = 25,
+                            DueDate = DateTime.Parse("2010-09-01")
+                        },
+                        new Assessment {
+                            CourseID = courses.Single(c => c.Title == "Chemistry" ).CourseID,
+                            Type = Models.Type.Assignment,
+                            AssessmentName = "G",
+                            CourseWeight = 25,
+                            DueDate = DateTime.Parse("2010-09-21")
+                        },
+                        new Assessment {
+                            CourseID = courses.Single(c => c.Title == "Microeconomics").CourseID,
+                            Type = Models.Type.Assignment,
+                            AssessmentName = "H",
+                            CourseWeight = 25,
+                            DueDate = DateTime.Parse("2015-09-05")
+                        },
+                        new Assessment {
+                            CourseID = courses.Single(c => c.Title == "Chemistry").CourseID,
+                            Type = Models.Type.Assignment,
+                            AssessmentName = "I",
+                            CourseWeight = 25,
+                            DueDate = DateTime.Parse("2015-04-01")
+                        },
+                        new Assessment {
+                            CourseID = courses.Single(c => c.Title == "Composition").CourseID,
+                            Type = Models.Type.Assignment,
+                            AssessmentName = "J",
+                            CourseWeight = 25,
+                            DueDate = DateTime.Parse("2013-09-01")
+                        },
+                        new Assessment {
+                            CourseID = courses.Single(c => c.Title == "Literature").CourseID,
+                            Type = Models.Type.Assignment,
+                            AssessmentName = "K",
+                            CourseWeight = 25,
+                            DueDate = DateTime.Parse("2015-09-01")
+                        }
+                    };
+                    assessments.ForEach(s => context.Assessments.AddOrUpdate(p => p.AssessmentName, s));
+                    context.SaveChanges();
+
+                    var tasks = new List<Task>
+                    {
+                        new Task
+                        {
+                            Title = "Finish off Calculus Assigment",
+                            Description = "Still need to do Q3 - Q5",
+                            StudentID = students[0].StudentID,
+                            Importance = Importance.Medium
+                        },
+                        new Task
+                        {
+                            Title = "Finish off Literature Assigment, due next year",
+                            Description = "Write Entire Essay",
+                            StudentID = students[2].StudentID,
+                            Importance = Importance.High
+                        }
+                    };
+
+                    foreach (Task e in tasks)
+                    {
+                        var taskInDataBase = context.Tasks.Where(
+                        s =>
+                        s.Student.StudentID == e.StudentID &&
+                        s.Title == e.Title);
+                        if (taskInDataBase == null)
+                        {
+                            context.Tasks.Add(e);
+                        }
                     }
-                };
-                tasks.ForEach(s => context.Tasks.AddOrUpdate(p => p.TaskID, s));
-                context.SaveChanges();
-            }
+                    context.SaveChanges();
+                }
+        */
         }
 
 
