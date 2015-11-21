@@ -27,7 +27,6 @@
         },
 
         getCourseById: function (id, callback) {
-            alert("ID got: " + id);
             var xhttp = new XMLHttpRequest();
 
             xhttp.onreadystatechange = function () {
