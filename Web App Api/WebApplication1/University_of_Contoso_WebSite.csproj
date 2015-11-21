@@ -68,12 +68,15 @@
   <ItemGroup>
     <Content Include="Course_Detail.html" />
     <Content Include="Course_Index.html" />
+    <Content Include="Course_Create.html" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\style.css" />
     <Content Include="scripts\assessmentModule.js" />
     <Content Include="scripts\courseModule.js" />
+    <Content Include="scripts\createpages.js" />
     <Content Include="scripts\taskModule.js" />
+    <Content Include="Student_Create.html" />
     <Content Include="Student_Detail.html" />
     <Content Include="Index.html" />
     <Content Include="scripts\bootstrap.js" />
