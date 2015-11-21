@@ -66,10 +66,13 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Course_Detail.html" />
     <Content Include="Course_Index.html" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\style.css" />
+    <Content Include="scripts\assessmentModule.js" />
+    <Content Include="scripts\courseModule.js" />
     <Content Include="scripts\taskModule.js" />
     <Content Include="Student_Detail.html" />
     <Content Include="Index.html" />
@@ -89,7 +92,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="scripts\studentmodule.js" />
+    <Content Include="scripts\studentModule.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

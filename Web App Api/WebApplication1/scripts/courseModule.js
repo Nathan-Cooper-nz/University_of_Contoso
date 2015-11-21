@@ -1,7 +1,7 @@
-﻿var TaskModule = (function () {
+﻿var CourseModule = (function () {
 
     return {
-        getTasks: function (callback) {
+        getCourses: function (callback) {
 
             var xhttp = new XMLHttpRequest();
 
@@ -9,46 +9,46 @@
             xhttp.onreadystatechange = function () {
                 // 4 - repsonse is ready, 200 success code
                 if (xhttp.readyState == 4 && xhttp.status == 200) {
-                    loadedtasks();
+                    loadedCourses();
                 }
             }
 
             // Build up our request and send it - true for async
-            xhttp.open("GET", "http://nathancooper-contosouniversity.azurewebsites.net/api/Tasks", true);
+            xhttp.open("GET", "http://nathancooper-contosouniversity.azurewebsites.net/api/Courses", true);
             xhttp.setRequestHeader("Content-type", "application/json");
             xhttp.send(null);
 
-            // Parse and send the tasklist data back to index.js
-            function loadedtasks() {
-                var tasksList = JSON.parse(xhttp.responseText);
-                callback(tasksList);
-                return tasksList;
+            // Parse and send the courselist data back to index.js
+            function loadedCourses() {
+                var coursesList = JSON.parse(xhttp.responseText);
+                callback(coursesList);
+                return coursesList;
             }
         },
 
-        getTaskById: function (id, callback) {
-
+        getCourseById: function (id, callback) {
+            alert("ID got: " + id);
             var xhttp = new XMLHttpRequest();
 
             xhttp.onreadystatechange = function () {
                 if (xhttp.readyState == 4 && xhttp.status == 200) {
-                    loadedtask();
+                    loadedCourse();
                 }
             }
 
-            xhttp.open("GET", "http://nathancooper-contosouniversity.azurewebsites.net/api/Tasks/" + id, true);
+            xhttp.open("GET", "http://nathancooper-contosouniversity.azurewebsites.net/api/Courses/" + id, true);
             xhttp.setRequestHeader("Content-type", "application/json");
 
             xhttp.send();
 
-            function loadedtask() {
-                var task = JSON.parse(xhttp.responseText);
-                callback(task);
-                return task;
+            function loadedCourse() {
+                var course = JSON.parse(xhttp.responseText);
+                callback(course);
+                return course;
             }
         },
 
-        addTask: function (task, callback) {
+        addCourse: function (course, callback) {
 
             var xhttp = new XMLHttpRequest();
 
@@ -58,14 +58,14 @@
                 }
             }
 
-            xhttp.open("POST", "http://nathancooper-contosouniversity.azurewebsites.net/api/Tasks", true);
+            xhttp.open("POST", "http://nathancooper-contosouniversity.azurewebsites.net/api/Courses", true);
             xhttp.setRequestHeader("Content-type", "application/json");
 
-            xhttp.send(JSON.stringify(task));
+            xhttp.send(JSON.stringify(course));
 
         },
 
-        updateTask: function (taskid, task, callback) {
+        updateCourse: function (courseid, course, callback) {
 
             var xhttp = new XMLHttpRequest();
 
@@ -75,13 +75,13 @@
                 }
             }
 
-            xhttp.open("PUT", "http://nathancooper-contosouniversity.azurewebsites.net/api/Tasks/" + taskid, true);
+            xhttp.open("PUT", "http://nathancooper-contosouniversity.azurewebsites.net/api/Courses/" + courseid, true);
             xhttp.setRequestHeader("Content-type", "application/json");
 
-            xhttp.send(JSON.stringify(task));
+            xhttp.send(JSON.stringify(course));
         },
 
-        deleteTask: function (taskid, callback) {
+        deleteCourse: function (courseid, callback) {
 
             var xhttp = new XMLHttpRequest();
 
@@ -91,7 +91,7 @@
                 }
             }
 
-            xhttp.open("DELETE", "http://nathancooper-contosouniversity.azurewebsites.net/api/Tasks/" + taskid, true);
+            xhttp.open("DELETE", "http://nathancooper-contosouniversity.azurewebsites.net/api/Courses/" + courseid, true);
             xhttp.setRequestHeader("Content-type", "application/json");
 
             xhttp.send();
