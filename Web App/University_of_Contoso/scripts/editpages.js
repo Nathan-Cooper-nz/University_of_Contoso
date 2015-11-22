@@ -13,12 +13,13 @@
         });
         setupStudentSubmit(id);
     } else if (controller === 'tasks') {
+        alert("pie");
         TaskModule.getTaskById(id, function (task) {
             loadForm(task);
         })
     }
 
-    setupReturn();
+    setupReturn(controller);
 
 });
 
@@ -50,10 +51,18 @@ function getUrlParameters(parameter, staticURL, decode) {
 function loadForm(obj) {
 
     // Prefill form with details
+    alert("HI");
     for (var key in obj) {
         if (key.toLowerCase().indexOf("id") == -1) {
             var forminput = document.getElementById(key + 'input');
-            forminput.value = obj[key];
+            if (key + 'input' === 'Importanceinput') {
+                alert(obj[key]);
+                document.forminput.selectedIndex = obj[key];
+            } else {
+                alert(obj[key]);
+
+                forminput.value = obj[key];
+            }
         }
     }
 
@@ -100,8 +109,14 @@ function setupCourseSubmit(id) {
 };
 
 //Go back to home without saving changes
-function setupReturn() {    
+function setupReturn(controller) {
     document.getElementById('btncancel').addEventListener('click', function () {
-         window.location.href = "index.html";
+        if (controller === "courses") {
+            window.location.href = "course_index.html";
+        } else if (controller === "students") {
+            window.location.href = "student_index.html";
+        } else {
+            window.location.href = history.back();
+        }
     });
 }

@@ -13,10 +13,19 @@
             document.getElementById("loadingmsg").style.display = "none";
             showDetails(student);
             showStudentTasks(student);
+            var newTaskLink = document.getElementById("newTask");
+            newTaskLink.href = "Task_Create.html" + "?id=" + id;
         });
     }
 
 });
+
+document.addEventListener("click", function (e) {
+    var target = e.target;
+    if (target.getAttribute("data-btntype") === 'newTask') {
+        window.location.href = "Task_Create.html" + "?id=" + getUrlParameters("id", "", true);
+    }
+})
 
 function showDetails(obj) {
     // Load details
@@ -99,7 +108,7 @@ function setupTasksTable(tasks, student) {
             var editbtn = document.createElement('button');
             editbtn.className = "btn btn-default";
             editbtn.innerHTML = "Edit";
-            editbtn.setAttribute("data-id", tasks[i].CourseID);
+            editbtn.setAttribute("data-id", tasks[i].TaskID);
             editbtn.setAttribute("data-btntype", "edit");
 
             editcol.appendChild(editbtn);
@@ -109,7 +118,7 @@ function setupTasksTable(tasks, student) {
             var deletebtn = document.createElement('button');
             deletebtn.className = "btn btn-default";
             deletebtn.innerHTML = "Delete";
-            deletebtn.setAttribute("data-id", tasks[i].CourseID);
+            deletebtn.setAttribute("data-id", tasks[i].TaskID);
             deletebtn.setAttribute("data-btntype", "delete");
 
             deletecol.appendChild(deletebtn);
@@ -121,8 +130,11 @@ function setupTasksTable(tasks, student) {
     document.getElementById("tbltask").classList.remove("hidden");
     document.getElementById("loadingmsgTasks").style.display = "none";
 
-
     // Event delegation
+    var controller = getUrlParameters("type", "", true);
+    var id = getUrlParameters("id", "", true);
+
+
     tasksTable.addEventListener('click', function (e) {
         var target = e.target;
 
@@ -135,7 +147,7 @@ function setupTasksTable(tasks, student) {
 
             // Edit - Button
             if (target.getAttribute("data-btntype") === "edit") {
-                window.location.href = 'Task_edit.html' + '?type=' + controller + '&id=' + target.getAttribute("data-id");
+                window.location.href = 'Task_Edit.html' + '?type=tasks&id=' + target.getAttribute("data-id");
                 return;
 
             // Delete - Button

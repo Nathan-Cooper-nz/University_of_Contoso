@@ -172,6 +172,7 @@
     <Content Include="Student_Detail.html" />
     <Content Include="Student_Edit.html" />
     <Content Include="Student_Index.html" />
+    <Content Include="Task_Create.html" />
     <Content Include="Task_Edit.html" />
     <Content Include="Web.config" />
   </ItemGroup>

@@ -4,9 +4,37 @@
         setupStudentSubmit();
     } else if (controller === "courses") {
         setupCourseSubmit();
+    } else if (controller === 'tasks') {
+        var studentID = getUrlParameters("id", "", true);
+        setupTaskSubmit(studentID);
     }
     setupReturn();
 });
+
+function getUrlParameters(parameter, staticURL, decode) {
+    /*
+     Function: getUrlParameters
+     Description: Get the value of URL parameters either from 
+                  current URL or static URL
+     Author: Tirumal
+     URL: www.code-tricks.com
+    */
+    var currLocation = (staticURL.length) ? staticURL : window.location.search,
+        parArr = currLocation.split("?")[1].split("&"),
+        returnBool = true;
+
+    for (var i = 0; i < parArr.length; i++) {
+        parr = parArr[i].split("=");
+        if (parr[0] == parameter) {
+            return (decode) ? decodeURIComponent(parr[1]) : parr[1];
+            returnBool = true;
+        } else {
+            returnBool = false;
+        }
+    }
+
+    if (!returnBool) return false;
+}
 
 function setupStudentSubmit() {
     //Creating student from form parameters
@@ -47,6 +75,25 @@ function setupCourseSubmit() {
             window.location.href = "Course_Index.html";
         });
     }
+};
+
+function setupTaskSubmit(student) {
+
+    var form = document.forms.create;
+    form.onsubmit = function (e) {
+        e.preventDefault();
+        var newTask = {
+            StudentID: student,
+            title: document.getElementById("Titleinput").value,
+            Description: "nothinbg",
+            Importance: 0
+        }
+
+        TaskModule.addTask(newTask, function () {
+            window.location.href = "Course_Index.html";
+        });
+    }
+   
 };
 
 // Add event listener, cancel button will take you back to home page
