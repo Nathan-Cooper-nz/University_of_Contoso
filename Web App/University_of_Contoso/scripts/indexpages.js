@@ -86,7 +86,7 @@ function loadStudentsTable(controller) {
                 
                 // Edit - Button
                 if (target.getAttribute("data-btntype") === "edit") {
-                    window.location.href = 'edit.html' + '?type=' + controller + '&id=' + target.getAttribute("data-id");
+                    window.location.href = 'Student_edit.html' + '?type=' + controller + '&id=' + target.getAttribute("data-id");
                     return;
 
                     // Details - Button

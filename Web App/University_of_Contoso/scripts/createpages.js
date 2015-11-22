@@ -21,12 +21,13 @@ function setupStudentSubmit() {
         var newStudent = {
             // Access the data in the fields with .value 
             lastname: document.getElementById("LastNameinput").value,
-            firstname: document.getElementById("FirstNameinput").value
+            firstname: document.getElementById("FirstNameinput").value,
+            email: document.getElementById("Emailinput").value
         }
         
         // Take me back home when done!
         StudentModule.addStudent(newStudent, function () {
-            window.location.href = "index.html";
+            window.location.href = "Student_Index.html";
         });
     }
 
