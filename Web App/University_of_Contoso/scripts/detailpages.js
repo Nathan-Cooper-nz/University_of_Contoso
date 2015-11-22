@@ -23,7 +23,9 @@
 document.addEventListener("click", function (e) {
     var target = e.target;
     if (target.getAttribute("data-btntype") === 'newTask') {
-        window.location.href = "Task_Create.html" + "?id=" + getUrlParameters("id", "", true);
+        window.location.href = "Task_Create.html" + "?id=" + getUrlParameters("id", "", true)+"&";
+    } else if (target.getAttribute("data-btntype") === 'newAssessment') {
+        window.location.href = "Assessment_Create.html" + "?id=" + getUrlParameters("id", "", true) + "&";
     }
 })
 

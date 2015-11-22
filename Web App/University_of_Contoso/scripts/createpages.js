@@ -5,8 +5,7 @@
     } else if (controller === "courses") {
         setupCourseSubmit();
     } else if (controller === 'tasks') {
-        var studentID = getUrlParameters("id", "", true);
-        setupTaskSubmit(studentID);
+        setupTaskSubmit();
     }
     setupReturn();
 });
@@ -77,13 +76,13 @@ function setupCourseSubmit() {
     }
 };
 
-function setupTaskSubmit(student) {
+function setupTaskSubmit() {
 
     var form = document.forms.create;
     form.onsubmit = function (e) {
         e.preventDefault();
         var newTask = {
-            StudentID: student,
+            StudentID: getUrlParameters("id", "", true),
             title: document.getElementById("Titleinput").value,
             Description: "nothinbg",
             Importance: 0

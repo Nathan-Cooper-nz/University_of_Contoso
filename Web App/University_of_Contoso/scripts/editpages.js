@@ -13,9 +13,9 @@
         });
         setupStudentSubmit(id);
     } else if (controller === 'tasks') {
-        alert("pie");
         TaskModule.getTaskById(id, function (task) {
             loadForm(task);
+            setupTaskSubmit(task);
         })
     }
 
@@ -51,18 +51,12 @@ function getUrlParameters(parameter, staticURL, decode) {
 function loadForm(obj) {
 
     // Prefill form with details
-    alert("HI");
     for (var key in obj) {
         if (key.toLowerCase().indexOf("id") == -1) {
+            var value = key + 'input';
             var forminput = document.getElementById(key + 'input');
-            if (key + 'input' === 'Importanceinput') {
-                alert(obj[key]);
-                document.forminput.selectedIndex = obj[key];
-            } else {
-                alert(obj[key]);
-
-                forminput.value = obj[key];
-            }
+            forminput.value = obj[key];
+            
         }
     }
 
@@ -92,7 +86,6 @@ function setupStudentSubmit(id) {
 
 function setupCourseSubmit(id) {
 
-    //Creating student from form and update db
     var form = document.forms.edit;
     form.onsubmit = function (e) {
         e.preventDefault();
@@ -106,8 +99,41 @@ function setupCourseSubmit(id) {
             window.location.href = "Course_Index.html";
         });
     }
+
+
 };
 
+function setupTaskSubmit(task) {
+    var taskID = null;
+    var studentID = null;
+
+    for (var key in task) {
+        if (key.toLowerCase().indexOf("id") != -1) {
+            if (taskID == null) {
+                taskID = task[key];
+            } else {
+                studentID = task[key];
+            }
+        }
+    }
+
+
+    var form = document.forms.edit;
+    forms.onsubmit = function (e) {
+        e.preventDefault();
+        var newTask = {
+            TaskID: taskID,
+            StudentID: studentID,
+            Title: document.getElementById('Titleinput').value,
+            Description: document.getElementById('Descriptioninput').value,
+            Importance: document.getElementById('Importanceinput').value
+        }
+
+        TaskModule.updateTask(id, newTask, function () {
+            window.location.href = "Student_detail.html?type=students&id="+studentID;
+        });
+    }
+}
 //Go back to home without saving changes
 function setupReturn(controller) {
     document.getElementById('btncancel').addEventListener('click', function () {
