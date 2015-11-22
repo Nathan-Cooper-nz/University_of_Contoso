@@ -125,7 +125,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Course_Create.html" />
+    <Content Include="Course_Detail.html" />
+    <Content Include="Course_Index.html" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\style.css" />
     <Content Include="Global.asax" />
+    <Content Include="scripts\assessmentModule.js" />
+    <Content Include="scripts\bootstrap.js" />
+    <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="scripts\courseModule.js" />
+    <Content Include="scripts\createpages.js" />
+    <Content Include="scripts\detailpages.js" />
+    <Content Include="scripts\indexpages.js" />
+    <Content Include="scripts\jquery-1.10.2.min.js" />
+    <Content Include="scripts\studentModule.js" />
+    <Content Include="scripts\taskModule.js" />
+    <Content Include="Student_Create.html" />
+    <Content Include="Student_Detail.html" />
+    <Content Include="Student_Index.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

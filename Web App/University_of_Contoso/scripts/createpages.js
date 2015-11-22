@@ -33,16 +33,15 @@ function setupStudentSubmit() {
 };
 
 function setupCourseSubmit() {
-    
+
     var form = document.forms.create;
     form.onsubmit = function (e) {
         e.preventDefault();
-
         var newCourse = {
             title: document.getElementById("Titleinput").value,
             credits: document.getElementById("Creditsinput").value
         }
-
+        
         CourseModule.addCourse(newCourse, function () {
             window.location.href = "Course_Index.html";
         });

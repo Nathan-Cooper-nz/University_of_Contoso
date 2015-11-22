@@ -92,14 +92,64 @@ function setupTasksTable(tasks, student) {
                     importanceccol.innerHTML = "Low"
                     break;
             }
-            //importanceccol.innerHTML = tasks[i].Importance;
             row.appendChild(importanceccol);
+
+            //Add buttons to remaining cols
+            var editcol = document.createElement('td');
+            var editbtn = document.createElement('button');
+            editbtn.className = "btn btn-default";
+            editbtn.innerHTML = "Edit";
+            editbtn.setAttribute("data-id", tasks[i].CourseID);
+            editbtn.setAttribute("data-btntype", "edit");
+
+            editcol.appendChild(editbtn);
+            row.appendChild(editcol);
+
+            var deletecol = document.createElement('td');
+            var deletebtn = document.createElement('button');
+            deletebtn.className = "btn btn-default";
+            deletebtn.innerHTML = "Delete";
+            deletebtn.setAttribute("data-id", tasks[i].CourseID);
+            deletebtn.setAttribute("data-btntype", "delete");
+
+            deletecol.appendChild(deletebtn);
+            row.appendChild(deletecol);
 
             tasksTable.appendChild(row);
         }
     }
     document.getElementById("tbltask").classList.remove("hidden");
     document.getElementById("loadingmsgTasks").style.display = "none";
+
+
+    // Event delegation
+    tasksTable.addEventListener('click', function (e) {
+        var target = e.target;
+
+        // Bubble up to tbody - need to bubble the event up because the click occurs in 
+        // the td cells but the data-id attribute is in the row (for going to more detail page)
+        while (target.nodeName.toLowerCase() !== "tbody") {
+
+            // For all these cases we use the data-id stored in either the cell or the row to keep context
+            // between seperate pages
+
+            // Edit - Button
+            if (target.getAttribute("data-btntype") === "edit") {
+                window.location.href = 'Task_edit.html' + '?type=' + controller + '&id=' + target.getAttribute("data-id");
+                return;
+
+            // Delete - Button
+            } else if (target.getAttribute("data-btntype") === "delete") {
+                StudentModule.deleteStudent(target.getAttribute("data-id"), function () {
+                    window.location.reload(true);
+                });
+                return;
+            }
+
+            // Keep bubbling the event up through the DOM
+            target = target.parentNode;
+        }
+    });
 }
 
 function showCourseAssements(course) {

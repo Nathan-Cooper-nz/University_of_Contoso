@@ -20,7 +20,7 @@
                 </div>
                 <div>
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="Index.html">Students</a></li>
+                        <li class="active"><a href="Student_Index.html">Students</a></li>
                         <li><a href="Course_Index.html">Courses</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -32,13 +32,15 @@
         </nav>
     </header>
     <div class="container">
-        <a href="index.html">Back to students</a>
+        <a href="Student_Index.html">Back to students</a>
         <p id="loadingmsg">Student details loading...</p>
         <h2>Student details</h2>
         <p><b>Student last name:</b></p>
         <p id="LastName"></p>
         <p><b>Student first name:</b></p>
         <p id="FirstName"></p>
+        <p><b>Student Email:</b></p>
+        <p id="Email"></p>
         <br />
         <h2>Student Tasks</h2>
         <a href="Task_Create.html">+ Create Task</a>
@@ -50,6 +52,8 @@
                     <th>Task</th>
                     <th>Details</th>
                     <th>Importance</th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody id="tbltaskcontent">

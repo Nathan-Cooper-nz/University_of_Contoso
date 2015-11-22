@@ -82,7 +82,6 @@
         },
 
         deleteStudent: function (studentid, callback) {
-
             var xhttp = new XMLHttpRequest();
 
             xhttp.onreadystatechange = function () {

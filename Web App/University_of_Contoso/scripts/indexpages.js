@@ -185,7 +185,6 @@ function loadCourseTable(controller) {
 
                 // For all these cases we use the data-id stored in either the cell or the row to keep context
                 // between seperate pages
-
                 // Edit - Button
                 if (target.getAttribute("data-btntype") === "edit") {
                     window.location.href = 'Course_edit.html' + '?type=' + controller + '&id=' + target.getAttribute("data-id");
@@ -198,7 +197,7 @@ function loadCourseTable(controller) {
 
                     // Delete - Button
                 } else if (target.getAttribute("data-btntype") === "delete") {
-                    StudentModule.deleteStudent(target.getAttribute("data-id"), function () {
+                    CourseModule.deleteCourse(target.getAttribute("data-id"), function () {
                         window.location.reload(true);
                     });
                     return;
@@ -214,4 +213,4 @@ function loadCourseTable(controller) {
             }
         });
     }
-}
+};

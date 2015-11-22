@@ -1,16 +1,17 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Student details</title>
+    <title>Course details</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css" />
     <script src="scripts/jquery-1.10.2.min.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
-    <script src="scripts/createpages.js"></script>
+    <script src="scripts/detailpages.js"></script>
     <script src="scripts/courseModule.js"></script>
+    <script src="scripts/assessmentModule.js"></script>
 </head>
-<body data-controller="courses">
+<body>
     <header>
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
@@ -19,7 +20,7 @@
                 </div>
                 <div>
                     <ul class="nav navbar-nav">
-                        <li><a href="Index.html">Students</a></li>
+                        <li><a href="Student_Index.html">Students</a></li>
                         <li class="active"><a href="Course_Index.html">Courses</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -32,21 +33,29 @@
     </header>
     <div class="container">
         <a href="Course_Index.html">Back to courses</a>
-        <h2>Create Course</h2>
-        <form role="form" name="create">
-            <div class="form-group">
-                <label for="titleinput">Course Title:</label>
-                <input type="text" class="form-control" id="Titleinput" required />
-            </div>
-            <div class="form-group">
-                <label for="creditsinput">Credits:</label>
-                <input type="number" class="form-control" id="Creditsinput" required />
-            </div>
-            <div class="btn-toolbar">
-                <button type="submit" class="btn btn-default">Submit</button>
-                <button type="button" class="btn btn-default" id="btncancel">Cancel</button>
-            </div>
-        </form>
+        <p id="loadingmsg">Course details loading...</p>
+        <h2>Course details</h2>
+        <p><b>Course Title:</b></p>
+        <p id="Title"></p>
+        <p><b>Course Credits:</b></p>
+        <p id="Credits"></p>
+        <br />
+        <h2>Course Assessment</h2>
+        <a href="Task_Create.html">+ Create Assessment</a>
+        <p id="loadingmsgAssessments">Course assessment loading...</p>
+
+        <table class="table table-striped spaced-table table-hover hidden" , id="tblassessment">
+            <thead>
+                <tr>
+                    <th>Assessment</th>
+                    <th>Instructions</th>
+                    <th>Type</th>
+                    <th>Percentage of Course</th>
+                    <th>Due Date</th>
+                </tr>
+            </thead>
+            <tbody id="tblassessmentcontent"></tbody>
+        </table>
     </div>
 </body>
 </html>
