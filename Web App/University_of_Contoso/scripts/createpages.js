@@ -6,6 +6,8 @@
         setupCourseSubmit();
     } else if (controller === 'tasks') {
         setupTaskSubmit();
+    } else if (controller === 'assessment') {
+        setupAssessmentSubmit();
     }
     setupReturn();
 });
@@ -77,23 +79,41 @@ function setupCourseSubmit() {
 };
 
 function setupTaskSubmit() {
-
     var form = document.forms.create;
-    form.onsubmit = function (e) {
+    form.onsubmit = function(e){
         e.preventDefault();
         var newTask = {
             StudentID: getUrlParameters("id", "", true),
-            title: document.getElementById("Titleinput").value,
-            Description: "nothinbg",
-            Importance: 0
-        }
+            Title: document.getElementById('Titleinput').value,
+            Description: document.getElementById('Descriptioninput').value,
+            Importance: document.getElementById('Importanceinput').value
+        };
 
         TaskModule.addTask(newTask, function () {
-            window.location.href = "Course_Index.html";
+            window.location.href = "Student_Detail.html?type=students&id=" + getUrlParameters("id", "", true);
         });
     }
    
 };
+
+function setupAssessmentSubmit() {
+    var form = document.forms.create;
+    form.onsubmit = function(e){
+        e.preventDefault();
+        var newAssessment = {
+            CourseID: getUrlParameters("id", "", true),
+            AssessmentName: document.getElementById('Nameinput').value,
+            Type: document.getElementById('Typeinput').value,
+            CourseWeight: document.getElementById('Weightinput').value,
+            Instructions: document.getElementById('Instructionsinput').value,
+            DueDate: document.getElementById('DueDateinput').value
+        };
+
+        AssessmentModule.addAssessment(newAssessment, function(){
+            window.location.href = "Course_Detail.html?type=courses&id="+getUrlParameters("id", "", true);
+        })
+    }
+}
 
 // Add event listener, cancel button will take you back to home page
 function setupReturn() {

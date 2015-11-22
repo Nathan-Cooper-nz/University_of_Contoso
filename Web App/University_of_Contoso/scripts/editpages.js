@@ -16,7 +16,12 @@
         TaskModule.getTaskById(id, function (task) {
             loadForm(task);
             setupTaskSubmit(task);
-        })
+        });
+    } else if (controller === 'assessments') {
+        AssessmentModule.getAssessmentById(id, function (assessment) {
+            loadForm(assessment);
+            setupAssessmentSubmit(assessment);
+        });
     }
 
     setupReturn(controller);
@@ -119,7 +124,7 @@ function setupTaskSubmit(task) {
 
 
     var form = document.forms.edit;
-    forms.onsubmit = function (e) {
+    form.onsubmit = function (e) {
         e.preventDefault();
         var newTask = {
             TaskID: taskID,
@@ -128,12 +133,45 @@ function setupTaskSubmit(task) {
             Description: document.getElementById('Descriptioninput').value,
             Importance: document.getElementById('Importanceinput').value
         }
-
-        TaskModule.updateTask(id, newTask, function () {
-            window.location.href = "Student_detail.html?type=students&id="+studentID;
+        TaskModule.updateTask(taskID, newTask, function () {
+            window.location.href = "Student_detail.html?type=students&id=" + studentID;
         });
     }
+};
+
+function setupAssessmentSubmit(assessment) {
+    var assessmentID = null;
+    var courseID = null;
+
+    for (var key in assessment) {
+        if (key.toLowerCase().indexOf("id") != -1) {
+            if (assessmentID == null) {
+                assessmentID = assessment[key];
+            } else {
+                courseID = assessment[key];
+            }
+        }
+    }
+
+    var form = document.forms.edit;
+    form.onsubmit = function (e) {
+        e.preventDefault();
+        var newAssessment = {
+            AssessmentID: assessmentID,
+            CourseID: courseID,
+            AssessmentName: document.getElementById('AssessmentNameinput').value,
+            Type: document.getElementById('Typeinput').value,
+            CourseWeight: document.getElementById('CourseWeightinput').value,
+            Instructions: document.getElementById('Instructionsinput').value,
+            DueDate: document.getElementById('DueDateinput').value
+        };
+
+        AssessmentModule.updateAssessment(assessmentID, newAssessment, function () {
+            window.location.href = "Course_Detail.html?type=courses&id=" + courseID;
+        })
+    }
 }
+
 //Go back to home without saving changes
 function setupReturn(controller) {
     document.getElementById('btncancel').addEventListener('click', function () {

@@ -5,11 +5,13 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <script src="scripts/jquery-1.10.2.min.js"></script>
+    <script src="scripts/jquery-2.1.4.min.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
     <script src="scripts/detailpages.js"></script>
     <script src="scripts/studentModule.js"></script>
     <script src="scripts/taskModule.js"></script>
+    <script src="scripts/toggleTable.js"></script>
+
 </head>
 <body>
     <header>
@@ -43,22 +45,24 @@
         <p id="Email"></p>
         <br />
         <h2>Student Tasks</h2>
+        <button class="btn btn-default" id="ShowTable">View Tasks</button>
+        <button class="btn btn-default" id="HideTable">Hide Tasks</button>
         <button class="btn btn-default" data-btntype="newTask">+ Create Task</button>
-        <p id="loadingmsgTasks">Student tasks loading...</p>
-
-        <table class="table table-striped spaced-table table-hover hidden", id="tbltask">
-            <thead>
-                <tr>
-                    <th>Task</th>
-                    <th>Details</th>
-                    <th>Importance</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody id="tbltaskcontent">
-            </tbody>
-        </table>
+        <div id="TableSection">
+            <p id="loadingmsgTasks">Student tasks loading...</p>
+            <table class="table table-striped spaced-table table-hover hidden" , id="tbltask">
+                <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>Details</th>
+                        <th>Importance</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="tbltaskcontent"></tbody>
+            </table>
+        </div>
     </div>
 </body>
 </html>

@@ -1,16 +1,16 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Edit Course</title>
+    <title>Create Assessment</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css" />
     <script src="scripts/jquery-2.1.4.min.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
-    <script src="scripts/editpages.js"></script>
-    <script src="scripts/courseModule.js"></script>
+    <script src="scripts/createpages.js"></script>
+    <script src="scripts/assessmentModule.js"></script>
 </head>
-<body data-controller="courses">
+<body data-controller="assessment">
     <header>
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
@@ -32,15 +32,31 @@
     </header>
     <div class="container">
         <a href="Course_Index.html">Back to courses</a>
-        <h2>Edit Course</h2>
-        <form role="form" name="edit">
+        <h2>Create Assessment</h2>
+        <form role="form" name="create">
             <div class="form-group">
-                <label for="titleinput">Course Title:</label>
-                <input type="text" class="form-control" id="Titleinput" required />
+                <label for="nameinput">Assessment Title:</label>
+                <input type="text" class="form-control" id="Nameinput" required />
             </div>
             <div class="form-group">
-                <label for="creditsinput">Credits:</label>
-                <input type="number" class="form-control" id="Creditsinput" required />
+                <label for="instructionsinput">Instructions:</label>
+                <input type="text" class="form-control" id="Instructionsinput" required />
+            </div>
+            <div class="form-group">
+                <label for="weightinput">Credits:</label>
+                <input type="number" class="form-control" id="Weightinput" required />
+            </div>
+            <div class="form-group">
+                <label for="typeinput">Task Importance:</label>
+                <select class="form-control" id="Typeinput" required>
+                    <option value=0>Test</option>
+                    <option value=1>Assignment</option>
+                    <option value=2>LabProject</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="duedateinput">Credits:</label>
+                <input type="date" class="form-control" id="DueDateinput" required />
             </div>
             <div class="btn-toolbar">
                 <button type="submit" class="btn btn-default">Submit</button>

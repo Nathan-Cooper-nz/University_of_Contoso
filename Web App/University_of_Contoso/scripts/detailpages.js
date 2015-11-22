@@ -13,8 +13,6 @@
             document.getElementById("loadingmsg").style.display = "none";
             showDetails(student);
             showStudentTasks(student);
-            var newTaskLink = document.getElementById("newTask");
-            newTaskLink.href = "Task_Create.html" + "?id=" + id;
         });
     }
 
@@ -217,9 +215,54 @@ function setupAssessmentsTable(assessments, course) {
             duedatecol.innerHTML = assessments[i].DueDate;
             row.appendChild(duedatecol);
 
+            //Add buttons to remaining cols
+            var editcol = document.createElement('td');
+            var editbtn = document.createElement('button');
+            editbtn.className = "btn btn-default";
+            editbtn.innerHTML = "Edit";
+            editbtn.setAttribute("data-id", assessments[i].AssessmentID);
+            editbtn.setAttribute("data-btntype", "edit");
+
+            editcol.appendChild(editbtn);
+            row.appendChild(editcol);
+
             assessmentsTable.appendChild(row);
         }
     }
+    
     document.getElementById("tblassessment").classList.remove("hidden");
     document.getElementById("loadingmsgAssessments").style.display = "none";
+
+    // Event delegation
+    var controller = getUrlParameters("type", "", true);
+    var id = getUrlParameters("id", "", true);
+
+
+    assessmentsTable.addEventListener('click', function (e) {
+        var target = e.target;
+
+        // Bubble up to tbody - need to bubble the event up because the click occurs in 
+        // the td cells but the data-id attribute is in the row (for going to more detail page)
+        while (target.nodeName.toLowerCase() !== "tbody") {
+
+            // For all these cases we use the data-id stored in either the cell or the row to keep context
+            // between seperate pages
+
+            // Edit - Button
+            if (target.getAttribute("data-btntype") === "edit") {
+                window.location.href = 'Assessment_Edit.html' + '?type=assessments&id=' + target.getAttribute("data-id");
+                return;
+
+                // Delete - Button
+            } else if (target.getAttribute("data-btntype") === "delete") {
+                StudentModule.deleteStudent(target.getAttribute("data-id"), function () {
+                    window.location.reload(true);
+                });
+                return;
+            }
+
+            // Keep bubbling the event up through the DOM
+            target = target.parentNode;
+        }
+    });
 }

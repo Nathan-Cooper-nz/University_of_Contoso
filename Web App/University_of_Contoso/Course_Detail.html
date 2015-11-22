@@ -5,11 +5,12 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <script src="scripts/jquery-1.10.2.min.js"></script>
+    <script src="scripts/jquery-2.1.4.min.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
     <script src="scripts/detailpages.js"></script>
     <script src="scripts/courseModule.js"></script>
     <script src="scripts/assessmentModule.js"></script>
+    <script src="scripts/toggleTable.js"></script>
 </head>
 <body>
     <header>
@@ -41,21 +42,26 @@
         <p id="Credits"></p>
         <br />
         <h2>Course Assessment</h2>
+        <button class="btn btn-default" id="ShowTable">View Assessments</button>
+        <button class="btn btn-default" id="HideTable">Hide Assessments</button>
         <button class="btn btn-default" data-btntype="newAssessment">+ Create Assessment</button>
-        <p id="loadingmsgAssessments">Course assessment loading...</p>
-
-        <table class="table table-striped spaced-table table-hover hidden" , id="tblassessment">
-            <thead>
-                <tr>
-                    <th>Assessment</th>
-                    <th>Instructions</th>
-                    <th>Type</th>
-                    <th>Percentage of Course</th>
-                    <th>Due Date</th>
-                </tr>
-            </thead>
-            <tbody id="tblassessmentcontent"></tbody>
-        </table>
+        <div id="TableSection">
+            <p id="loadingmsgAssessments">Course assessment loading...</p>
+            <table class="table table-striped spaced-table table-hover hidden" , id="tblassessment">
+                <thead>
+                    <tr>
+                        <th>Assessment</th>
+                        <th>Instructions</th>
+                        <th>Type</th>
+                        <th>Percentage of Course</th>
+                        <th>Due Date</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="tblassessmentcontent"></tbody>
+            </table>
+        </div>
     </div>
 </body>
 </html>

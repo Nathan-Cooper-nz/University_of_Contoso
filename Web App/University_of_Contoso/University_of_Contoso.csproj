@@ -149,6 +149,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assessment_Create.html" />
+    <Content Include="Assessment_Edit.html" />
     <Content Include="Course_Create.html" />
     <Content Include="Course_Detail.html" />
     <Content Include="Course_Edit.html" />
@@ -165,9 +167,12 @@
     <Content Include="scripts\detailpages.js" />
     <Content Include="scripts\editpages.js" />
     <Content Include="scripts\indexpages.js" />
-    <Content Include="scripts\jquery-1.10.2.min.js" />
+    <None Include="scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="scripts\jquery-2.1.4.js" />
+    <Content Include="scripts\jquery-2.1.4.min.js" />
     <Content Include="scripts\studentModule.js" />
     <Content Include="scripts\taskModule.js" />
+    <Content Include="scripts\toggleTable.js" />
     <Content Include="Student_Create.html" />
     <Content Include="Student_Detail.html" />
     <Content Include="Student_Edit.html" />
@@ -197,6 +202,7 @@
     <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\NathanCooper-ContosoUniversity - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\NathanCooper-ContosoUniversity - Web Deploy.pubxml" />
+    <Content Include="scripts\jquery.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

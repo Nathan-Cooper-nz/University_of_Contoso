@@ -9,7 +9,7 @@
             xhttp.onreadystatechange = function () {
                 // 4 - repsonse is ready, 200 success code
                 if (xhttp.readyState == 4 && xhttp.status == 200) {
-                    loadedtasks();
+                    loadedTasks();
                 }
             }
 
@@ -19,7 +19,7 @@
             xhttp.send(null);
 
             // Parse and send the tasklist data back to index.js
-            function loadedtasks() {
+            function loadedTasks() {
                 var tasksList = JSON.parse(xhttp.responseText);
                 callback(tasksList);
                 return tasksList;
@@ -32,7 +32,7 @@
 
             xhttp.onreadystatechange = function () {
                 if (xhttp.readyState == 4 && xhttp.status == 200) {
-                    loadedtask();
+                    loadedTask();
                 }
             }
 
@@ -41,7 +41,7 @@
 
             xhttp.send();
 
-            function loadedtask() {
+            function loadedTask() {
                 var task = JSON.parse(xhttp.responseText);
                 callback(task);
                 return task;
@@ -82,7 +82,6 @@
         },
 
         deleteTask: function (taskid, callback) {
-
             var xhttp = new XMLHttpRequest();
 
             xhttp.onreadystatechange = function () {
