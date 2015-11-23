@@ -9,7 +9,6 @@
     } else if (controller === 'assessment') {
         setupAssessmentSubmit();
     }
-    setupReturn();
 });
 
 function getUrlParameters(parameter, staticURL, decode) {
@@ -113,11 +112,4 @@ function setupAssessmentSubmit() {
             window.location.href = "Course_Detail.html?type=courses&id="+getUrlParameters("id", "", true);
         })
     }
-}
-
-// Add event listener, cancel button will take you back to home page
-function setupReturn() {
-    document.getElementById('btncancel').addEventListener('click', function () {
-        window.location.href = window.history.back();
-    });
 }

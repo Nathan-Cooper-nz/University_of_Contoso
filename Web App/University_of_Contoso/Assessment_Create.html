@@ -22,10 +22,6 @@
                         <li><a href="Student_Index.html">Students</a></li>
                         <li class="active"><a href="Course_Index.html">Courses</a></li>
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                    </ul>
                 </div>
             </div>
         </nav>
@@ -55,12 +51,12 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="duedateinput">Credits:</label>
-                <input type="date" class="form-control" id="DueDateinput" required />
+                <label for="duedateinput">Due Date:</label>
+                <input type="datetime" class="form-control" id="DueDateinput" required />
             </div>
             <div class="btn-toolbar">
                 <button type="submit" class="btn btn-default">Submit</button>
-                <button type="button" class="btn btn-default" id="btncancel">Cancel</button>
+                <input type="button" class="btn btn-default" onclick="location.href='javascript:history.back()'" value="Cancel" />
             </div>
         </form>
     </div>

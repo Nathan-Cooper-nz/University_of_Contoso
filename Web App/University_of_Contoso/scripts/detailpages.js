@@ -152,7 +152,7 @@ function setupTasksTable(tasks, student) {
 
             // Delete - Button
             } else if (target.getAttribute("data-btntype") === "delete") {
-                StudentModule.deleteStudent(target.getAttribute("data-id"), function () {
+                TaskModule.deleteTask(target.getAttribute("data-id"), function () {
                     window.location.reload(true);
                 });
                 return;
@@ -226,6 +226,16 @@ function setupAssessmentsTable(assessments, course) {
             editcol.appendChild(editbtn);
             row.appendChild(editcol);
 
+            var deletecol = document.createElement('td');
+            var deletebtn = document.createElement('button');
+            deletebtn.className = "btn btn-default";
+            deletebtn.innerHTML = "Delete";
+            deletebtn.setAttribute("data-id", assessments[i].AssessmentID);
+            deletebtn.setAttribute("data-btntype", "delete");
+
+            deletecol.appendChild(deletebtn);
+            row.appendChild(deletecol);
+
             assessmentsTable.appendChild(row);
         }
     }
@@ -255,7 +265,7 @@ function setupAssessmentsTable(assessments, course) {
 
                 // Delete - Button
             } else if (target.getAttribute("data-btntype") === "delete") {
-                StudentModule.deleteStudent(target.getAttribute("data-id"), function () {
+                AssessmentModule.deleteAssessment(target.getAttribute("data-id"), function () {
                     window.location.reload(true);
                 });
                 return;

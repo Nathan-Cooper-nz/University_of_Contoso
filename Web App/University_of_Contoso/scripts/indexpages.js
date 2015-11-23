@@ -97,6 +97,13 @@ function loadStudentsTable(controller) {
                     // Delete - Button
                 } else if (target.getAttribute("data-btntype") === "delete") {
                     StudentModule.deleteStudent(target.getAttribute("data-id"), function () {
+                        TaskModule.getTasks(function (tasks) {
+                            for (var i = 0; i != tasks.length; i++) {
+                                if(tasks[i].StudentID === target.getAttribute("data-id")){
+                                    TaskModule.deleteTask(tasks[i].TaskID);
+                                }
+                            }
+                        });
                         window.location.reload(true);
                     });
                     return;

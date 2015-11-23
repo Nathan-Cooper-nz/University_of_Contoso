@@ -23,9 +23,6 @@
             setupAssessmentSubmit(assessment);
         });
     }
-
-    setupReturn(controller);
-
 });
 
 function getUrlParameters(parameter, staticURL, decode) {
@@ -170,17 +167,4 @@ function setupAssessmentSubmit(assessment) {
             window.location.href = "Course_Detail.html?type=courses&id=" + courseID;
         })
     }
-}
-
-//Go back to home without saving changes
-function setupReturn(controller) {
-    document.getElementById('btncancel').addEventListener('click', function () {
-        if (controller === "courses") {
-            window.location.href = "course_index.html";
-        } else if (controller === "students") {
-            window.location.href = "student_index.html";
-        } else {
-            window.location.href = history.back();
-        }
-    });
 }
