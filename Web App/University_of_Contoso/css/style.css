@@ -16,6 +16,20 @@
    cursor:pointer;
 }
 
-
+.MessageArea {
+    background-color: #99CCFF;
+    border: thick solid #808080;
+    padding: 20px;
+    margin: 20px;
+    height: 70vh;
+    overflow-y:auto;
+}
+.MessageBar{
+    position: fixed;
+    width: inherit;
+    border: inherit;
+    padding: inherit;
+    margin: inherit;
+}
 
 
